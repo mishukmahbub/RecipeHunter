@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ChefCard from '../components/ChefCard';
 import FAQ from '../components/FAQ';
 
@@ -33,6 +33,20 @@ const Home = () => {
                     ></ChefCard>)
                 }
             </div>
+            {/* blog */}
+            <div>
+                <h2 className='font-extrabold text-4xl text-center my-10'>Our Blog</h2>
+                <div className="hero bg-base-200">
+                    <div className="hero-content text-center">
+                        <div className="max-w-md">
+                            <h1 className="text-5xl font-bold">Hello there</h1>
+                            <p className="py-6">Want to learn all the recipes in our website? Browse our blog now!</p>
+                            <Link to='/blog'><button className="btn btn-primary">Go to Blog</button></Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* FAQ */}
             <h2 className='font-extrabold text-4xl text-center my-10'>FAQ</h2>
             <div className='my-10'>
                 <FAQ></FAQ>

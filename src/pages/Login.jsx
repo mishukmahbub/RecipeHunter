@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)
-    const from = location.state?.from?.pathname || '/category/0'
+    const from = location.state?.from?.pathname || '/home'
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);

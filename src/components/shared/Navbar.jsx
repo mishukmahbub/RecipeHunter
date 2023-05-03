@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
-    const user= "";
+    const { user, logOut } = useContext(AuthContext);
     return (
         <div className="navbar bg-secondary flex justify-between font-bold">
             <div className="">
@@ -18,11 +19,16 @@ const Navbar = () => {
             </div>
             <div className="">
                 {user ?
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="http://placebeard.it/640x480" />
-                        </div>
-                    </label> :
+                    <div className="dropdown dropdown-end">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-bottom" data-tip={user?.displayName}>
+                            <div className="w-10 rounded-full">
+                                <img src="http://placebeard.it/640x480" />
+                            </div>
+                        </label>
+                        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                            <li><a onClick={() =>logOut()}>Logout</a></li>
+                        </ul>
+                    </div> :
                     <Link to='/login'><button className='btn btn-primary'>Login</button></Link>}
             </div>
 

@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const [user, setUser] = useState(null);
-
+    const user= "";
     return (
         <div className="navbar bg-secondary flex justify-between font-bold">
             <div className="">

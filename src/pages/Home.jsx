@@ -28,7 +28,7 @@ const Home = () => {
             <div className='grid grid-cols-2 gap-8'>
                 {
                     chefDetail.map(chef => <ChefCard
-                        key={chef.id}
+                        key={chef._id}
                         chef={chef}
                     ></ChefCard>)
                 }
@@ -36,8 +36,9 @@ const Home = () => {
             {/* blog */}
             <div>
                 <h2 className='font-extrabold text-4xl text-center my-10'>Our Blog</h2>
-                <div className="hero bg-base-200">
-                    <div className="hero-content text-center">
+                <div className="hero bg-base-200" style={{ backgroundImage: `url("https://images.pexels.com/photos/1343464/pexels-photo-1343464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")` }}>
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">
                             <h1 className="text-5xl font-bold">Hello there</h1>
                             <p className="py-6">Want to learn all the recipes in our website? Browse our blog now!</p>

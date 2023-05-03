@@ -14,16 +14,24 @@ const router = createBrowserRouter([
                 element: <Home />,
                 loader: () => fetch(`https://b7a10-chef-recipe-hunter-server-side-mishukmahbub-mishukmahbub.vercel.app/chefData`)
             },
-            {
-                path: "recipes",
-                element: <Recipes />,
-                loader: () => fetch(`https://b7a10-chef-recipe-hunter-server-side-mishukmahbub-mishukmahbub.vercel.app/chefData`)
-            },
+
             {
                 path: "blog",
                 element: <Blog />,
             },
         ],
+    },
+    {
+        path: "recipes",
+        element: <HomeLayout />,
+        children: [
+            {
+                path: ':id',
+                element: <Recipes />,
+                loader: ({ params }) => fetch(`https://b7a10-chef-recipe-hunter-server-side-mishukmahbub-mishukmahbub.vercel.app/chefData/${params.id}`)
+            }
+        ]
+
     },
 ]);
 

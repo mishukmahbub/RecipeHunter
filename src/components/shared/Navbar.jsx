@@ -5,9 +5,6 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
     const [user, setUser] = useState(null);
 
-    const handleLogin = () => {
-        //login code
-    }
     return (
         <div className="navbar bg-secondary flex justify-between font-bold">
             <div className="">
@@ -27,7 +24,7 @@ const Navbar = () => {
                             <img src="http://placebeard.it/640x480" />
                         </div>
                     </label> :
-                    <button className='btn btn-primary' onClick={handleLogin}>Login</button>}
+                    <Link to='/login'><button className='btn btn-primary'>Login</button></Link>}
             </div>
 
         </div>

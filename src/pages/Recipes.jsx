@@ -2,6 +2,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
+import LazyLoad from 'react-lazy-load';
 
 const Recipes = () => {
     const { chef_picture_url, chef_name, years_of_experience, num_recipes, num_likes, bio, recipes } = useLoaderData();
@@ -11,7 +12,11 @@ const Recipes = () => {
             {/* banner */}
             <div className='my-10'>
                 <div className="card lg:card-side bg-base-100 shadow-xl w-auto">
-                    <figure className='ps-8'><img src={chef_picture_url} alt="Album" /></figure>
+                    <figure className='ps-8'>
+                        <LazyLoad>
+                            <img src={chef_picture_url} alt="" />
+                        </LazyLoad>
+                    </figure>
                     <div className="card-body">
                         <h2 className="card-title font-bold">{chef_name}</h2>
                         <p><span className='font-semibold'>Experience:</span> {years_of_experience} years</p>

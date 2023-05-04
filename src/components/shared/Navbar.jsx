@@ -8,12 +8,12 @@ const Navbar = () => {
     return (
         <div className="navbar bg-secondary flex justify-between font-bold">
             <div className="">
-                <Link to='/home' className="btn btn-ghost normal-case text-xl">Chef Recipe Hunter</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">Chef Recipe Hunter</Link>
             </div>
 
             <div className=''>
                 <ul className="menu menu-horizontal px-1">
-                    <li><NavLink to='/home' className={({ isActive }) => (isActive ? "bg-secondary-focus" : "")}>Home</NavLink></li>
+                    <li><NavLink to='/' className={({ isActive }) => (isActive ? "bg-secondary-focus" : "")}>Home</NavLink></li>
                     <li><NavLink to='/blog' className={({ isActive }) => (isActive ? "bg-secondary-focus" : "")}>Blog</NavLink></li>
                 </ul>
             </div>

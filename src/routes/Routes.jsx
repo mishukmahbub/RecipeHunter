@@ -6,14 +6,16 @@ import Recipes from "../pages/Recipes";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <HomeLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
-                path: "home",
+                path: "/",
                 element: <Home />,
                 loader: () => fetch(`https://b7a10-chef-recipe-hunter-server-side-mishukmahbub-mishukmahbub.vercel.app/chefData`)
             },
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
     {
         path: "recipes",
         element: <HomeLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: ':id',
@@ -42,7 +45,6 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://b7a10-chef-recipe-hunter-server-side-mishukmahbub-mishukmahbub.vercel.app/chefData/${params.id}`)
             }
         ]
-
     },
 ]);
 

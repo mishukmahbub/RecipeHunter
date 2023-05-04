@@ -3,7 +3,6 @@ import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
 import { Navigate, useLocation } from 'react-router';
-// import { Spinner } from 'daisyui';
 
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children }) => {
@@ -11,8 +10,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
     console.log('user in private route', user);
     if (loading) {
-        // return 
-        return <span className='text-9xl'>Loading</span>
+        return <div className="mx-auto w-48 h-48 border-8 border-t-0 border-red-600 rounded-full animate-spin"></div>
     }
 
     if (user) {

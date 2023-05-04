@@ -4,20 +4,21 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 
-
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)
-    const from = location.state?.from?.pathname || '/home'
+    const from = location.state?.from?.pathname || '/home';
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const [error, setError] = useState(null);
 
-    
+
     const handleLogin = event => {
         event.preventDefault();
+        setError("")
 
         signIn(email, password)
             .then(result => {
@@ -26,7 +27,32 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
+            })
+    }
+    const handleGoogleLogin = () => {
+        setError("")
+        googleSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
+    const handleGithubLogin = () => {
+        setError("")
+        githubSignIn()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                setError(error.message);
             })
     }
 
@@ -54,8 +80,17 @@ const Login = () => {
                                     Not a member?<Link to='/register' className="label-text-alt link link-hover">Register Now</Link>
                                 </label>
                             </div>
+                            <div className="label text-error">
+                                <p>{error}</p>
+                            </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary" onClick={handleLogin} >Login</button>
+                            </div>
+                            <div className="form-control">
+                                <button className="btn btn-primary" onClick={handleGoogleLogin} >Login with Google</button>
+                            </div>
+                            <div className="form-control">
+                                <button className="btn btn-primary" onClick={handleGithubLogin} >Login with Github</button>
                             </div>
                         </form>
                     </div>

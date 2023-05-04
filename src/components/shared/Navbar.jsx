@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className="">
                 {user ?
                     <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-bottom" data-tip={user?.displayName}>
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-bottom" data-tip={user.displayName}>
                             <div className="w-10 rounded-full">
                                 <img src="http://placebeard.it/640x480" />
                             </div>

@@ -5,6 +5,7 @@ import Blog from "../pages/Blog";
 import Recipes from "../pages/Recipes";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <Recipes />,
+                element: <PrivateRoute><Recipes /></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://b7a10-chef-recipe-hunter-server-side-mishukmahbub-mishukmahbub.vercel.app/chefData/${params.id}`)
             }
         ]

@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <>
             {/* Banner */}
-            <div className="flex flex-row justify-center items-center bg-primary my-10 py-6 px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-8 md:flex-row justify-center items-center bg-primary my-10 py-6 px-4 sm:px-6 lg:px-8">
                 <div className="flex-1">
                     <h2 className="text-2xl font-bold leading-7 sm:text-3xl sm:truncate">
                         Discover Delicious Food Recipes
